@@ -1,0 +1,22 @@
+[package]
+name = "acril-web"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+acril.git = "https://github.com/PassivityTrading/acril"
+futures = "0.3"
+pingu.git = "https://github.com/nothendev/pingu"
+# pingu.path = "/mnt/k/implodent/pingu"
+tracing = { version = "0.1", optional = true }
+
+[[example]]
+name = "hello"
+
+[dev-dependencies]
+async-compat = "0.2.3"
+tokio = { version = "1.35.1", features = ["full"] }
+tracing-subscriber = { version = "0.3.18", features = ["env-filter"] }
+
+[features]
+tracing = ["dep:tracing", "pingu/tracing"]
