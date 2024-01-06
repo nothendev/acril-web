@@ -53,6 +53,8 @@ async fn main() -> Result<(), std::io::Error> {
             {
                 #[cfg(feature = "tracing")]
                 tracing::error!(error = ?e);
+                #[cfg(not(feature = "tracing"))]
+                eprintln!("{e}");
             }
         });
     }
